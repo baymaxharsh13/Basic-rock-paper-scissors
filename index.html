@@ -26,16 +26,31 @@
       ">scissors</button>
 
     <button onclick = " 
-    score.wins   = 0 
-    score.losses = 0 
-    score.ties   = 0  
+    score.wins   = 0 ;
+    score.losses = 0 ;
+    score.ties   = 0 ;
+    localStorage.removeItem(`score`);
     ">Reset Score</button>
 
     <script>
     //function -- 
 
-    const score = JSON.parse(localStorage.getItem(`score`)) ;  //stores the data in  local storage since stored as json string it is converted back to js
-     
+     let score = JSON.parse(localStorage.getItem(`score`)) || { 
+            wins   : 0 ,
+            losses : 0 , 
+            ties   : 0 ,
+        } ; //stores the data in  local storage since stored as json string it is converted back to js
+            /*Try to get "score" from localStorage.Convert it from string → object.
+If nothing exists (first time user opens page),
+use default values*/
+   
+        /* if(!score){       // why this here? when we remove  score from local storage to make reset button work the score , so score gives out null value and when we try tpo acess any value on null it will give error , so we equate score to null and reset its value
+        score = { 
+            wins   : 0 ,
+            losses : 0 , 
+            ties   : 0 ,
+        }
+    } */
         function resultMove(playerMove){
             let res1 = ``; 
             const compMove = pickComMove() ;
