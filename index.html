@@ -67,15 +67,15 @@
             res1 = `you win` ; 
         }
         }
-        if(result === `you win`){
-            score.wins = wins++ ; 
-        }else if(result === `you loose`){
-            score.losses = losses++    
-        }else if (result === `tie`){
-            score.ties = tie++ ; 
+        if(res1 === `you win`){
+            score.wins++ ; 
+        }else if(res1 === `you loose`){
+            score.losses++    
+        }else if (res1 === `tie`){
+            score.ties++ ; 
         }
           alert(`you picked ${playerMove} , comp picked ${compMove} , ${res1}
-          Wins : ${score.wins} , losses : ${score.loses} ,Ties : ${score.ties}`) ;
+          Wins : ${score.wins} , losses : ${score.losses} ,Ties : ${score.ties}`) ;
     }
     
         function pickComMove(){ 
