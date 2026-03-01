@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rock paper scissors</title>
+</head>
+<body>
+    <p> rock paper scissors</p>
+    <!--rock-->
+    <button onclick = "
+    const compMove = pickComMove() ; 
+     resultMove(`rock`) ;  
+    ">rock</button> 
+   <!--paper-->
+   
+   <button onclick = "
+    const compMove = pickComMove() ; 
+    resultMove(`paper`) ; ">paper</button>
+   
+    <!--scissors-->
+   
+   <button onclick ="
+    const compMove = pickComMove() ; 
+        resultMove(`scissors`) ;
+      ">scissors</button>
+
+    <script>
+    //function -- 
+
+    const score = { 
+        wins   : 0 , 
+        losses : 0 ,
+        ties   : 0
+    } ; 
+
+        function resultMove(playerMove){
+            let res1 = ``; 
+            const compMove = pickComMove() ;
+        if ( playerMove ===`scissors`){
+            
+            if (compMove === `rock`){
+                res1 = `you loose` ; 
+            }else if(compMove === `paper`) {
+                res1 = `you win` ; 
+            }else if(compMove ===`scissors`){
+                res1 = `tie` ; 
+            }
+        } 
+        else if(playerMove === `paper`){
+           
+        if (compMove === `rock`){
+            res1 = `you win` ; 
+        }else if(compMove === `paper`) {
+            res1 = `tie` ; 
+        }else if(compMove ===`scissors`){
+            res1 = `you loose` ; 
+        }
+         
+        }else if(playerMove === `rock`){
+            
+        if (compMove === `rock`){
+            res1 = `tie` ; 
+        }else if(compMove === `paper`) {
+            res1 = `you loose` ; 
+        }else if(compMove ===`scissors`){
+            res1 = `you win` ; 
+        }
+        }
+        if(result === `you win`){
+            score.wins = wins++ ; 
+        }else if(result === `you loose`){
+            score.losses = losses++    
+        }else if (result === `tie`){
+            score.ties = tie++ ; 
+        }
+          alert(`you picked ${playerMove} , comp picked ${compMove} , ${res1}
+          Wins : ${score.wins} , losses : ${score.loses} ,Ties : ${score.ties}`) ;
+    }
+    
+        function pickComMove(){ 
+     const randomNumber = Math.random()
+     let compMove = ``;
+    if (randomNumber>= 0 && randomNumber < 1/3){
+        compMove = `rock`; 
+    }else if(randomNumber>=1/3 && randomNumber < 2/3){
+        compMove = `paper`; 
+    }else if (randomNumber >=2/3 && randomNumber < 1){
+        compMove = `scissors`;      //scope limits where a variable exists curly bracket ke bahar nai use kar sakta same variables ko 
+    }
+    return compMove ;   
+        }
+    </script>
+</body>
