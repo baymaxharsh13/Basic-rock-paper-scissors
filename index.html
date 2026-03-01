@@ -34,12 +34,8 @@
     <script>
     //function -- 
 
-    const score = { 
-        wins   : 0 , 
-        losses : 0 ,
-        ties   : 0
-    } ; 
-
+    const score = JSON.parse(localStorage.getItem(`score`)) ;  //stores the data in  local storage since stored as json string it is converted back to js
+     
         function resultMove(playerMove){
             let res1 = ``; 
             const compMove = pickComMove() ;
@@ -78,8 +74,9 @@
         }else if(res1 === `you loose`){
             score.losses++    
         }else if (res1 === `tie`){
-            score.ties++ ; 
+            score.ties++ ;
         }
+        localStorage.setItem(`score` ,JSON.stringify(score)); //saving in local storage as json string 
           alert(`you picked ${playerMove} , comp picked ${compMove} , ${res1}
           Wins : ${score.wins} , losses : ${score.losses} ,Ties : ${score.ties}`) ;
     }
